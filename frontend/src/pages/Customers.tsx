@@ -28,7 +28,7 @@ function OrdersChip({ count }: { count: number }) {
   }
 
   return (
-    <span className="inline-flex h-5 items-center rounded-full border border-tertiary bg-tertiary/10 px-2 font-display text-label-caps uppercase tracking-wide text-tertiary">
+    <span className="inline-flex h-5 items-center whitespace-nowrap rounded-full border border-tertiary bg-tertiary/10 px-2 font-display text-[10px] uppercase leading-none tracking-wide text-tertiary sm:text-label-caps">
       {count} orders
     </span>
   )
@@ -99,7 +99,12 @@ export function CustomersPage() {
     <AppShell
       title="Customers"
       actions={
-        <Button icon={<Plus size={16} strokeWidth={1.8} />} onClick={() => setIsModalOpen(true)}>
+        <Button
+          icon={<Plus size={16} strokeWidth={1.8} />}
+          iconOnlyMobile
+          aria-label="New customer"
+          onClick={() => setIsModalOpen(true)}
+        >
           New Customer
         </Button>
       }

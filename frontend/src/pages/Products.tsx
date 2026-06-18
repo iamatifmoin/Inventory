@@ -130,7 +130,12 @@ export function ProductsPage() {
     <AppShell
       title="Products"
       actions={
-        <Button icon={<Plus size={16} strokeWidth={1.8} />} onClick={openCreateModal}>
+        <Button
+          icon={<Plus size={16} strokeWidth={1.8} />}
+          iconOnlyMobile
+          aria-label="New product"
+          onClick={openCreateModal}
+        >
           New Product
         </Button>
       }

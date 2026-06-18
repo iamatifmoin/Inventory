@@ -54,18 +54,18 @@ function SectionCard({
   to: string
 }) {
   return (
-    <section className="rounded-lg border border-outline-variant bg-surface-container-low">
+    <section className="min-w-0 overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
       <header className="flex items-center justify-between gap-4 border-b border-outline-variant/40 px-4 py-3">
         <h2 className="font-display text-headline-sm text-on-surface">{title}</h2>
         <Link
           to={to}
-          className="inline-flex items-center gap-1 font-body text-body-sm text-on-surface-variant transition-colors hover:text-on-surface"
+          className="inline-flex shrink-0 items-center gap-1 font-body text-body-sm text-on-surface-variant transition-colors hover:text-on-surface"
         >
           <span>View All</span>
           <ArrowRight size={14} strokeWidth={1.8} />
         </Link>
       </header>
-      <div className="p-4">{children}</div>
+      <div className="min-w-0 p-4">{children}</div>
     </section>
   )
 }
@@ -100,7 +100,7 @@ export function DashboardPage() {
           )}
         </section>
 
-        <section className="grid gap-6 xl:grid-cols-2">
+        <section className="grid min-w-0 gap-6 xl:grid-cols-2">
           <SectionCard title="Low Stock Products" to="/products">
             {isLoading ? (
               <div className="space-y-3">

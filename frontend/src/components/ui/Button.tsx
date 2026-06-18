@@ -5,6 +5,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'ghost' | 'destructive'
   size?: 'default' | 'compact'
   icon?: ReactNode
+  iconOnlyMobile?: boolean
 }
 
 export function Button({
@@ -12,6 +13,7 @@ export function Button({
   className,
   disabled,
   icon,
+  iconOnlyMobile = false,
   size = 'default',
   type = 'button',
   variant = 'primary',
@@ -25,6 +27,7 @@ export function Button({
         'inline-flex items-center justify-center gap-2 rounded font-body transition duration-150',
         'focus-visible:outline-none focus-visible:ring-0',
         size === 'default' ? 'h-row-height px-4 text-body-md' : 'h-8 px-3 text-body-sm',
+        iconOnlyMobile && size === 'default' && 'max-sm:h-9 max-sm:w-9 max-sm:px-0',
         variant === 'primary' &&
           'bg-primary text-on-primary hover:brightness-110 active:brightness-95',
         variant === 'secondary' &&
@@ -39,7 +42,9 @@ export function Button({
       {...props}
     >
       {icon ? <span className="shrink-0">{icon}</span> : null}
-      {children}
+      {children ? (
+        iconOnlyMobile ? <span className="hidden sm:inline">{children}</span> : children
+      ) : null}
     </button>
   )
 }

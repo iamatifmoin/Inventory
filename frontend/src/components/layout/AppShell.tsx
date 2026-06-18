@@ -48,7 +48,9 @@ export function AppShell({ title, actions, children }: AppShellProps) {
           actions={actions}
           onMenuToggle={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
         />
-        <main className="flex-1 overflow-y-auto p-6 pb-24 md:pb-6">{children}</main>
+        <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto p-4 pb-24 md:p-6 md:pb-6">
+          {children}
+        </main>
       </div>
 
       <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-outline-variant/20 bg-surface-container-lowest/95 backdrop-blur md:hidden">

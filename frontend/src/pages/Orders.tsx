@@ -110,7 +110,12 @@ export function OrdersPage() {
     <AppShell
       title="Orders"
       actions={
-        <Button icon={<Plus size={16} strokeWidth={1.8} />} onClick={() => setIsModalOpen(true)}>
+        <Button
+          icon={<Plus size={16} strokeWidth={1.8} />}
+          iconOnlyMobile
+          aria-label="New order"
+          onClick={() => setIsModalOpen(true)}
+        >
           New Order
         </Button>
       }
